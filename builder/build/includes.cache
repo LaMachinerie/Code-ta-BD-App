@@ -1,0 +1,17 @@
+[
+  {
+    "Sourcefile": "",
+    "Include": "",
+    "Includepath": "C:\\Users\\OpenBot\\Documents\\Github\\BotlyStudio-App\\builder\\hardware\\arduino\\avr\\cores\\arduino"
+  },
+  {
+    "Sourcefile": "",
+    "Include": "",
+    "Includepath": "C:\\Users\\OpenBot\\Documents\\Github\\BotlyStudio-App\\builder\\hardware\\arduino\\avr\\variants\\leonardo"
+  },
+  {
+    "Sourcefile": "C:\\Users\\OpenBot\\Documents\\Github\\BotlyStudio-App\\builder\\build\\sketch\\sketch.ino.cpp",
+    "Include": "",
+    "Includepath": ""
+  }
+]
