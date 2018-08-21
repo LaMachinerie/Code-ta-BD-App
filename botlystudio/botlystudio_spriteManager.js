@@ -140,8 +140,6 @@ SpriteManager.processCharacterJson = function (characterJson, roomKey) {
 
 SpriteManager.processActionsJson = function (actionsJson, roomKey, characterKey) {
     for (actionsKey in actionsJson) {
-        console.log(actionsJson);
-        console.log('\n ********** \n' + roomKey + '\n ********** \n' + characterKey);
         if (SpriteManager.treeBuffer[roomKey].character[characterKey].actions[actionsKey] == null)
             SpriteManager.treeBuffer[roomKey].character[characterKey].actions[actionsKey] = actionsJson[actionsKey];
     }

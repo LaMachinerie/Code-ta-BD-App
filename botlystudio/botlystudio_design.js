@@ -122,6 +122,7 @@ BotlyStudio.changeIdeButtonsDesign = function(value) {
 BotlyStudio.showExtraIdeButtons = function(show) {
   var IdeButtonLeft = document.getElementById('button_ide_left');
   var IdeButtonMiddle = document.getElementById('button_ide_middle');
+  var IdeButtonLast = document.getElementById('button_ide_last');
   if (show) {
     // prevent previously set time-out to hide buttons while trying to show them
     clearTimeout(BotlyStudio.outHoldtimeoutHandle);
@@ -131,6 +132,9 @@ BotlyStudio.showExtraIdeButtons = function(show) {
     BotlyStudio.showtimeoutHandle = setTimeout(function() {
       IdeButtonLeft.style.visibility = 'visible';
       IdeButtonLeft.style.opacity = '1';
+      
+      IdeButtonLast.style.visibility = 'visible';
+      IdeButtonLast.style.opacity = '1';
     }, 50);
   } else {
     // As the mouse out can be accidental, only hide them after a delay
@@ -140,6 +144,9 @@ BotlyStudio.showExtraIdeButtons = function(show) {
       IdeButtonLeft.style.visibility = 'hidden';
       IdeButtonLeft.style.opacity = '0';
       BotlyStudio.hidetimeoutHandle = setTimeout(function() {
+        IdeButtonLast.style.visibility = 'hidden';
+        IdeButtonLast.style.opacity = '0';
+        
         IdeButtonMiddle.style.visibility = 'hidden';
         IdeButtonMiddle.style.opacity = '0';
       }, 50);

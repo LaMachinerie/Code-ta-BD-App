@@ -17,10 +17,6 @@ BotlyStudio.init = function () {
   BotlyStudio.injectBlockly(document.getElementById('content_blocks'),
     BotlyStudio.TOOLBOX_XML, 'blockly/');
 
-
-
-
-
   //BotlyStudio.importExtraBlocks();
 
 
@@ -56,6 +52,10 @@ BotlyStudio.bindActionFunctions = function () {
     BotlyStudio.openSettings();
     $('.button-collapse').sideNav('hide');
   });
+  BotlyStudio.bindClick_('menu_sprite', function () {
+    BotlyStudio.addSpriteDialog();
+    $('.button-collapse').sideNav('hide');
+  });
   // Floating buttons
   BotlyStudio.bindClick_('button_ide_large', function () {
     BotlyStudio.ideButtonLargeAction();
@@ -65,6 +65,9 @@ BotlyStudio.bindActionFunctions = function () {
   });
   BotlyStudio.bindClick_('button_ide_left', function () {
     BotlyStudio.ideButtonLeftAction();
+  });
+  BotlyStudio.bindClick_('button_ide_last', function () {
+    BotlyStudio.ideButtonLastAction();
   });
 
   BotlyStudio.bindClick_('button_toggle_toolbox', BotlyStudio.toogleToolbox);
@@ -80,8 +83,31 @@ BotlyStudio.ideButtonMiddleAction = function () {
 };
 
 BotlyStudio.ideButtonLeftAction = function () {
+  BotlyStudio.saveCanvas();
+};
+
+BotlyStudio.ideButtonLastAction = function () {
   BotlyStudio.devTools();
 };
+
+BotlyStudio.saveCanvas = function(){
+  var canvas = document.getElementById("display");
+  var img    = canvas.toDataURL("image/png");
+  var filename = document.getElementById("sketch_name").value;
+
+  var pom = document.createElement('a');
+  pom.setAttribute('href', img);
+  pom.setAttribute('download', filename);
+
+  if (document.createEvent) {
+      var event = document.createEvent('MouseEvents');
+      event.initEvent('click', true, true);
+      pom.dispatchEvent(event);
+  }
+  else {
+      pom.click();
+  }
+}
 
 /** Initialises the IDE buttons with the default option from the server. */
 BotlyStudio.initialiseIdeButtons = function () {
@@ -315,6 +341,16 @@ BotlyStudio.renderContent = function () {
 
 BotlyStudio.devTools = function () {
   $('#code_dialog').openModal({
+    dismissible: true,
+    opacity: .5,
+    in_duration: 200,
+    out_duration: 250
+  });
+};
+
+
+BotlyStudio.addSpriteDialog = function () {
+  $('#sprite_dialog').openModal({
     dismissible: true,
     opacity: .5,
     in_duration: 200,

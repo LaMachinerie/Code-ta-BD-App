@@ -76,11 +76,19 @@ body {
 .arduino_teal_light {
   background-color: #62AEB2;
 }
-.arduino_orange {
+.arduino_blue {
   background-color: #2d5a84;
+}
+.arduino_orange {
+  background-color: #e47711;
 }
 .arduino_yellow {
   background-color: rgba(255, 204, 51, 1);
+  /* background-color: #FFCC33; */
+  /* background-color: #E5AD24; from community logo */
+}
+.arduino_red {
+  background-color: rgb(226, 22, 14);
   /* background-color: #FFCC33; */
   /* background-color: #E5AD24; from community logo */
 }
@@ -477,7 +485,7 @@ line-height: 64px;
   right: 25px;
   top: -20px;
   height: 55px;
-  width: 160px;
+  width: 250px;
   z-index: 12;
 }
 #button_ide_large {
@@ -513,6 +521,21 @@ line-height: 64px;
   -o-transition: visibility 0.3s linear, opacity 0.3s linear;
   transition: visibility 0.3s linear, opacity 0.3s linear;
 }
+
+#button_ide_last {
+  position: absolute;
+  right: 180px;
+  top: 10px;
+  visibility: hidden;
+  opacity: 0;
+  -moz-transition: visibility 0.3s linear, opacity 0.3s linear;
+  -webkit-transition: visibility 0.3s linear, opacity 0.3s linear;
+  -o-transition: visibility 0.3s linear, opacity 0.3s linear;
+  transition: visibility 0.3s linear, opacity 0.3s linear;
+}
+
+
+#button_ide_last:hover:before,
 #button_ide_large:hover:before,
 #button_ide_middle:hover:before,
 #button_ide_left:hover:before {
